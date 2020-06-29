@@ -115,7 +115,7 @@ class MakeController extends Controller
         //
     }
 
-    public function getMakes()
+    public static function getMakes()
     {
         $response = Http::get('https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json');
         $decodedData = json_decode($response->body());
@@ -123,7 +123,7 @@ class MakeController extends Controller
         foreach ($decodedData->Results as $d) {
             $arr[] = (array) $d;
         }
-        Make::insert($arr);
+        return Make::insert($arr);
     }
 
     public function changeStatus($id)
