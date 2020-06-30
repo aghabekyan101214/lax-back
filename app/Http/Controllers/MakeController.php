@@ -23,7 +23,6 @@ class MakeController extends Controller
         $data = Make::orderBy("status", "DESC")->orderBy("Id", "ASC")->paginate(500);
         $title = self::TITLE;
         $route = self::ROUTE;
-//        $this->getMakes();
         return view(self::VIEW . "index", compact('data', 'title', 'route'));
     }
 

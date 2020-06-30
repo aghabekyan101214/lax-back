@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(["namespace" => "api"], function() {
     Route::get("get-makes", "MakeController@index");
+    Route::get("get-models/{id}", "ModelController@index");
 });

@@ -84,6 +84,10 @@
                         <span class="hide-menu">Makes</span></a>
                 </li>
 
+                <li><a href="/models" class="waves-effect"><i class="mdi mdi-car fa-fw"></i>
+                        <span class="hide-menu">Models</span></a>
+                </li>
+
             </ul>
         </div>
     </div>

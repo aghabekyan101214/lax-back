@@ -20,7 +20,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Make</th>
-                                <th>Status</th>
+                                <th>Models</th>
                                 <th>Settings</th>
                             </tr>
                         </thead>
@@ -31,29 +31,32 @@
                                 <td>{{$key + 1}}</td>
                                 <td>{{ $val->Make_Name }}</td>
                                 <td>
-                                    <span style="padding: 10px 15px" class="badge @if($val->status != 1) d-none @endif badge-success">Active</span>
-                                    <span style="padding: 10px 15px" class="badge @if($val->status != 0) d-none @endif badge-danger">InActive</span>
+                                    <ul>
+                                        @foreach($val->models as $model)
+                                            <li>{{ $model->Model_Name }}</li>
+                                        @endforeach
+                                    </ul>
                                 </td>
                                 <td>
-                                    <a href="{{$route."/".$val->id."/edit"}}" data-toggle="tooltip"
+                                    <a href="{{$route."/".$val->Make_ID."/edit"}}" data-toggle="tooltip"
                                        data-placement="top" title="Edit" class="btn btn-info btn-circle tooltip-info">
                                         <i class="fas fa-edit"></i>
                                     </a>
 
-                                    <form style="display: inline-block" action="{{ $route."/".$val->id }}"
-                                          method="post" id="work-for-form">
-                                        @csrf
-                                        @method("DELETE")
-                                        <a href="javascript:void(0);" data-text="{{ $val->Make_Name }}" class="delForm" data-id ="{{$val->id}}">
-                                            <button data-toggle="tooltip"
-                                                    data-placement="top" title="Remove"
-                                                    class="btn btn-danger btn-circle tooltip-danger"><i
-                                                    class="fas fa-trash"></i></button>
-                                        </a>
-                                    </form>
-                                    <button onclick="changeStatus('{{ $val->id }}', $(this))" data-toggle="tooltip" data-placement="top" title="Change Status" class="btn btn-info btn-circle tooltip-info">
-                                        <i class="fas fa-toggle-on"></i>
-                                    </button>
+{{--                                    <form style="display: inline-block" action="{{ $route."/".$val->id }}"--}}
+{{--                                          method="post" id="work-for-form">--}}
+{{--                                        @csrf--}}
+{{--                                        @method("DELETE")--}}
+{{--                                        <a href="javascript:void(0);" data-text="make" class="delForm" data-id ="{{$val->id}}">--}}
+{{--                                            <button data-toggle="tooltip"--}}
+{{--                                                    data-placement="top" title="Remove"--}}
+{{--                                                    class="btn btn-danger btn-circle tooltip-danger"><i--}}
+{{--                                                    class="fas fa-trash"></i></button>--}}
+{{--                                        </a>--}}
+{{--                                    </form>--}}
+{{--                                    <button onclick="changeStatus('{{ $val->id }}', $(this))" data-toggle="tooltip" data-placement="top" title="Change Status" class="btn btn-info btn-circle tooltip-info">--}}
+{{--                                        <i class="fas fa-toggle-on"></i>--}}
+{{--                                    </button>--}}
                                 </td>
                             </tr>
                         @endforeach

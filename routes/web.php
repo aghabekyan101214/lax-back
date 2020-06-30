@@ -25,4 +25,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get("/", "DashboardController@index");
     Route::resource("/makes", "MakeController");
     Route::post("/makes/change-status/{id}", "MakeController@changeStatus");
+
+    Route::resource("/models", "CarModelController");
 });

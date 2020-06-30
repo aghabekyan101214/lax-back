@@ -15,7 +15,7 @@ class CreateMakesTable extends Migration
     {
         Schema::create('makes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("Make_ID");
+            $table->unsignedBigInteger("Make_ID")->index();
             $table->string("Make_Name", 191);
             $table->unsignedTinyInteger("status")->default(0);
             $table->timestamps();
