@@ -21,7 +21,7 @@
         <div class="lg-info-panel">
             <div class="inner-panel">
                 <div class="lg-content">
-                    <h2>Artrek Program</h2>
+                    <h2>Welcome To Lax Auto Repars Admin Panel</h2>
                 </div>
             </div>
         </div>
